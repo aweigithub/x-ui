@@ -40,7 +40,7 @@ update() {
 
 if [ ! -f xuiyg_update ]; then
   update
-  packages=("curl" "openssl" "tar" "wget" "cronie")
+  packages=("curl" "openssl" "tar" "wget" "cron")
   for package in "${packages[@]}"
   do
     if ! command -v "$package" &> /dev/null; then
