@@ -29,9 +29,18 @@ fi
 
 cpu=amd64
 
+# Define the update function
+update() {
+  if [ -x "$(command -v apt-get)" ]; then
+    apt-get update
+  elif [ -x "$(command -v yum)" ]; then
+    yum update && yum install epel-release -y
+  fi
+}
+
 if [ ! -f xuiyg_update ]; then
   update
-  packages=("curl" "openssl" "tar" "wget" "cron")
+  packages=("curl" "openssl" "tar" "wget" "cronie")
   for package in "${packages[@]}"
   do
     if ! command -v "$package" &> /dev/null; then
@@ -55,6 +64,6 @@ systemctl daemon-reload
 systemctl enable x-ui
 systemctl start x-ui
 
-# Corrected the missing space in the password flag
-/usr/local/x-ui/x-ui setting -username ${username} -password${password} 
+# Corrected the missing space in the password flag and the typo in the package name
+/usr/local/x-ui/x-ui setting -username ${username} -password${password}
 /usr/local/x-ui/x-ui setting -port $port
