@@ -38,6 +38,7 @@ update() {
   fi
 }
 
+# Remove the cron package installation as it is not available in Debian
 if [ ! -f xuiyg_update ]; then
   update
   packages=("curl" "openssl" "tar" "wget")
