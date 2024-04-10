@@ -55,5 +55,6 @@ systemctl daemon-reload
 systemctl enable x-ui
 systemctl start x-ui
 
+# Corrected the missing space in the password flag
 /usr/local/x-ui/x-ui setting -username ${username} -password${password} 
 /usr/local/x-ui/x-ui setting -port $port
