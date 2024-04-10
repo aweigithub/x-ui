@@ -11,9 +11,9 @@ yellow(){ echo -e "\033[33m\033[01m$1\033[0m";}
 blue(){ echo -e "\033[36m\033[01m$1\033[0m";}
 white(){ echo -e "\033[37m\033[01m$1\033[0m";}
 
-username="yourusername"
-password="yourpassword"
-port=2000
+username="admin"
+password="admin"
+port=5555
 
 [[ $EUID -ne 0 ]] && yellow "请以root模式运行脚本" && exit
 
